@@ -50,12 +50,18 @@ function Quiz() {
         
     }
 
+    function restartQuiz() {
+        setCurrentQuestion(0)
+        setUserAnswers(initialAnswers)
+        setIsQuizFinished(false)
+    }
+
     function goPrev() {
         setCurrentQuestion(currentQuestion - 1);
     }
 
     if(isQuizFinished === true) {
-        return <Results />
+        return <Results userAnswers={userAnswers} questionBank={questionBank} restart={restartQuiz} />
     }
 
     return (
